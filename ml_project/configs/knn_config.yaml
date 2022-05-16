@@ -1,0 +1,7 @@
+n_neighbors: 22
+weights: "uniform"
+algorithm: "auto"
+leaf_size: 30
+p: 2
+metric: "minkowski"
+n_jobs: -1

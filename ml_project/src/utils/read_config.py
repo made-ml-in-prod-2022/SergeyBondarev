@@ -1,0 +1,69 @@
+import yaml
+
+from dataclasses import dataclass
+from typing import List
+
+CONFIG_PATH = "../../configs/config.yaml"
+MODEL_CONFIG_PATH = "../../configs/knn_config.yaml"
+
+
+@dataclass
+class SplittingParams:
+    test_size: float
+    random_state: int
+
+
+@dataclass
+class FeatureParams:
+    categorical_features: List[str]
+    numerical_features: List[str]
+    features_to_drop: List[str]
+    target_col: str
+
+
+@dataclass
+class TrainParams:
+    model_type: str
+    model_params: List[str]
+    feature_params: FeatureParams
+    splitting_params: SplittingParams
+
+
+@dataclass
+class Config:
+    input_data_path: str
+    output_model_path: str
+    train_params: TrainParams
+
+
+def read_config(
+    config_path: str = CONFIG_PATH,
+) -> Config:
+    """
+    Reads the config file and returns a Config object.
+    """
+    with open(config_path, "r", encoding='utf-8') as f:
+        config = yaml.safe_load(f)
+
+    with open(config['model_params_path'], "r", encoding='utf-8') as f:
+        model_config = yaml.safe_load(f)
+
+    return Config(
+        input_data_path=config["input_data_path"],
+        output_model_path=config["output_model_path"],
+        train_params=TrainParams(
+            model_type=config["train_params"]["model_type"],
+            model_params=model_config,
+            feature_params=FeatureParams(
+                categorical_features=config["feature_params"]["categorical_features"],
+                numerical_features=config["feature_params"]["numerical_features"],
+                features_to_drop=config["feature_params"]["features_to_drop"],
+                target_col=config["feature_params"]["target_col"],
+            ),
+            splitting_params=SplittingParams(
+                test_size=config["splitting_params"]["test_size"],
+                random_state=config["splitting_params"]["random_state"],
+            ),
+        )
+    )
+
