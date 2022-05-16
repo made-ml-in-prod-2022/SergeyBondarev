@@ -25,4 +25,4 @@ feature_params:
     - "thalach"
   features_to_drop:
     - ""
-  target_col: ""
+  target_col: "condition"
