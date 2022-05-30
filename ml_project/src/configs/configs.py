@@ -68,3 +68,6 @@ def read_config(
             ),
         )
     )
+
+
+configs = read_config()

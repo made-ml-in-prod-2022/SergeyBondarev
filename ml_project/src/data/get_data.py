@@ -1,3 +1,4 @@
+from ..configs import configs
 from dotenv import load_dotenv
 from kaggle.api.kaggle_api_extended import KaggleApi
 
@@ -25,4 +26,4 @@ def get_data(dataset_name, dataset_path):
 
 
 if __name__ == '__main__':
-    get_data('titanic', 'data/raw')
+    get_data(configs, 'data/raw')

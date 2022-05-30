@@ -1,4 +1,4 @@
-from src.configs.read_config import read_config
+from src.configs.configs import read_config
 
 
 CONFIG_PATH = "../../configs/config.yaml"
