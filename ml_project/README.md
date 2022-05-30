@@ -1,13 +1,11 @@
 ml_project
 ==============================
 
-Production ready project for classification problem
+Production ready project for classification problem. Data is used from [Kaggle](https://www.kaggle.com/datasets/cherngs/heart-disease-cleveland-uci).
 
 Project Organization
 ------------
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
     │   ├── external       <- Data from third party sources.
@@ -15,18 +13,13 @@ Project Organization
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
     │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
     ├── models             <- Trained and serialized models, model predictions, or model summaries
     │
     ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
     │                         the creator's initials, and a short `-` delimited description, e.g.
     │                         `1.0-jqp-initial-data-exploration`.
     │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
     ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
     │
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
     │                         generated with `pip freeze > requirements.txt`
@@ -45,9 +38,6 @@ Project Organization
     │   │   │                 predictions
     │   │   ├── predict_model.py
     │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
@@ -55,20 +45,38 @@ Project Organization
 ## Prerequisites
 
 You need to have Python 3.7+ installed in order to run the following project. It's recommended to use a virtual environment to isolate the project's dependencies. One can use conda, virtualenv, pyenv or any other Python environment manager.
+I use [virtualenv](https://virtualenv.pypa.io/en/stable/) and [conda](https://conda.io/docs/user-guide/install/index.html).
+
+In order to create an isolated virtual environment and install all necessary packages, you can use the following steps:
+
+1. Create a virtual environment. 
+```
+python -m venv ./venv
+```
+2. Activate created virtual environment.
+
+| Platform | Shell           | Command to activate virtual environment |
+| -------- | --------------- | --------------------------------------- |
+| POSIX    | bash/zsh        | $ source \<venv\>/bin/activate          |
+|          | fish            | $source \<venv\>/bin/activate.fish      |
+|          | csh/tcsh        | $source \<venv\>/bin/activate.csh       |
+|          | PowerShell Core | $source \<venv\>/bin/activate.ps1       |
+| Windows  | cmd.exe         | C:\> \<venv\>\Scripts\activate.bat      |
+|          | PowerShell      | PS C:\> \<venv\>\Scripts\Activate.ps1   |
+
+3. Install dependencies
+```
+pip install -r requirements.txt
+```
+
 
 ## How to run
 
-Once virtual environment is activated you need to install the project dependencies using
-```
-``` 
-
 ## Train model
 
+## Reproducibility
 
-## Reproduceability
-
-
-## Code quality maintenence
+## Code quality maintenance
 
 
 --------

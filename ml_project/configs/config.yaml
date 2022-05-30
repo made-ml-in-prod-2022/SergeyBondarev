@@ -1,11 +1,19 @@
+# CONSTANTS
+dataset_name: "cherngs/heart-disease-cleveland-uci"
+
+# PATH
 input_data_path: "data/raw/heart_cleveland_upload.csv"
 output_model_path: "models/model.pkl"
-model_params_path: "configs/knn_config.yaml"
+model_params_path: "configs/knn_config.yaml" # change this to any other available model if you want
+
+# MODELS
 splitting_params:
   test_size: 0.2
   random_state: 42
 train_params:
   model_type: "knn"
+
+# FEATURE ENGINEERING
 feature_params:
   categorical_features:
     - "sex"

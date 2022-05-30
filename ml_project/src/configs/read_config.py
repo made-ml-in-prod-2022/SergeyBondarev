@@ -1,10 +1,10 @@
 import yaml
 
+from pathlib import Path
 from dataclasses import dataclass
-from typing import List
+from typing import List, Dict, Any
 
-CONFIG_PATH = "../../configs/config.yaml"
-MODEL_CONFIG_PATH = "../../configs/knn_config.yaml"
+CONFIG_PATH = "configs/config.yaml"
 
 
 @dataclass
@@ -24,7 +24,7 @@ class FeatureParams:
 @dataclass
 class TrainParams:
     model_type: str
-    model_params: List[str]
+    model_params: Dict[str, Any]
     feature_params: FeatureParams
     splitting_params: SplittingParams
 
@@ -33,11 +33,12 @@ class TrainParams:
 class Config:
     input_data_path: str
     output_model_path: str
+    model_params_path: str
     train_params: TrainParams
 
 
 def read_config(
-    config_path: str = CONFIG_PATH,
+    config_path: str = Path(__file__).parents[2] / CONFIG_PATH
 ) -> Config:
     """
     Reads the config file and returns a Config object.
@@ -45,12 +46,13 @@ def read_config(
     with open(config_path, "r", encoding='utf-8') as f:
         config = yaml.safe_load(f)
 
-    with open(config['model_params_path'], "r", encoding='utf-8') as f:
+    with open(Path(__file__).parents[2] / config['model_params_path'], "r", encoding='utf-8') as f:
         model_config = yaml.safe_load(f)
 
     return Config(
         input_data_path=config["input_data_path"],
         output_model_path=config["output_model_path"],
+        model_params_path=config["model_params_path"],
         train_params=TrainParams(
             model_type=config["train_params"]["model_type"],
             model_params=model_config,
@@ -66,4 +68,3 @@ def read_config(
             ),
         )
     )
-

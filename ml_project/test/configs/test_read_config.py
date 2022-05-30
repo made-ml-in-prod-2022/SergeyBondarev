@@ -1,11 +1,12 @@
-from src.utils.read_config import read_config
+from src.configs.read_config import read_config
 
 
 CONFIG_PATH = "../../configs/config.yaml"
 
 
-def test_config_read_with_no_errors(path_to_config_file=CONFIG_PATH):
-    read_config(path_to_config_file)
+def test_config_read_with_no_errors():
+    read_config()
+
 
 def test_config_has_all_params():
     config = read_config()
