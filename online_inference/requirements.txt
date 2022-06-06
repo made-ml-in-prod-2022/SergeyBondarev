@@ -1,0 +1,18 @@
+# local package
+-e .
+
+# external requirements
+coverage==6.4
+fastapi==0.78.0
+flake8==4.0.1
+httptools==0.4.0
+kaggle==1.5.12
+pandas==1.4.2
+pip-chill==1.0.1
+python-dotenv==0.20.0
+pyyaml==6.0
+scikit-learn==1.1.1
+typing==3.7.4.3
+uvicorn==0.17.6
+watchgod==0.8.2
+websockets==10.3
