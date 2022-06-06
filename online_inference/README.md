@@ -99,6 +99,12 @@ python src/webapp/make_request.py
 ```
 to check if the model is working.
 
+
+## Run webapp tests
+```
+pytest test/webapp/test_webapp.py
+```
+
 --------
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
