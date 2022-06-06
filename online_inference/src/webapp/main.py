@@ -27,3 +27,8 @@ async def health():
     if not ok:
         raise HTTPException(status_code=425, detail="Model not trained yet")
     return {"status": "ok"}
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

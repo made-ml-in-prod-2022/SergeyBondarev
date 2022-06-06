@@ -29,7 +29,6 @@ def run_pipeline():
     if not train_model_done():
         model = train_model()
 
-        X_test = pd.read_csv(os.path.join(configs.interim_data_path, 'X_test.csv'))
         actual = pd.read_csv(os.path.join(configs.interim_data_path, 'y_test.csv'))
 
         predicted = predict(model)

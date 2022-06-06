@@ -8,9 +8,8 @@ Project Organization
 
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
-    │   ├── external       <- Data from third party sources.
     │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
+    │   ├── predictions    <- The final predictions.
     │   └── raw            <- The original, immutable data dump.
     │
     ├── models             <- Trained and serialized models, model predictions, or model summaries
@@ -18,8 +17,6 @@ Project Organization
     ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
     │                         the creator's initials, and a short `-` delimited description, e.g.
     │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
     │
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
     │                         generated with `pip freeze > requirements.txt`
@@ -56,11 +53,11 @@ python -m venv ./venv
 2. Activate created virtual environment.
 
 | Platform | Shell           | Command to activate virtual environment |
-| -------- | --------------- | --------------------------------------- |
+| -------- | --------------- |-----------------------------------------|
 | POSIX    | bash/zsh        | $ source \<venv\>/bin/activate          |
-|          | fish            | $source \<venv\>/bin/activate.fish      |
-|          | csh/tcsh        | $source \<venv\>/bin/activate.csh       |
-|          | PowerShell Core | $source \<venv\>/bin/activate.ps1       |
+|          | fish            | $ source \<venv\>/bin/activate.fish     |
+|          | csh/tcsh        | $ source \<venv\>/bin/activate.csh      |
+|          | PowerShell Core | $ source \<venv\>/bin/activate.ps1      |
 | Windows  | cmd.exe         | C:\> \<venv\>\Scripts\activate.bat      |
 |          | PowerShell      | PS C:\> \<venv\>\Scripts\Activate.ps1   |
 
@@ -69,15 +66,38 @@ python -m venv ./venv
 pip install -r requirements.txt
 ```
 
+4. Create .env file if it doesn't exist with the following content:
+```
+KAGGLE_USERNAME=your_username
+KAGGLE_KEY=your_key
+```
+Fill the placeholders with your Kaggle credentials.
 
-## How to run
 
-## Train model
+## How to run pipeline
 
-## Reproducibility
+In order to run the full pipeline execute
+```
+python src/pipeline/run_pipeline.py
+```
+This will
+- download the data from Kaggle
+- transform the data into features
+- perform train-test split
+- train a model
+- evaluate the model on the test set
+- save model, metrics and predictions to disk
 
-## Code quality maintenance
-
+## How to run webapp
+Execute
+```
+python src/webapp/run_webapp.py
+```
+This will start the webapp on the localhost:8000. After this one can make a request with
+```
+python src/webapp/make_request.py
+```
+to check if the model is working.
 
 --------
 
