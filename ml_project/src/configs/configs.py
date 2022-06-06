@@ -17,7 +17,6 @@ class SplittingParams:
 class FeatureParams:
     categorical_features: List[str]
     numerical_features: List[str]
-    features_to_drop: List[str]
     target_col: str
 
 
@@ -69,7 +68,6 @@ def read_config(
             feature_params=FeatureParams(
                 categorical_features=config["feature_params"]["categorical_features"],
                 numerical_features=config["feature_params"]["numerical_features"],
-                features_to_drop=config["feature_params"]["features_to_drop"],
                 target_col=config["feature_params"]["target_col"],
             ),
             splitting_params=SplittingParams(
