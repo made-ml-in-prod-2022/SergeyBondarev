@@ -2,7 +2,7 @@ import click
 import pandas as pd
 from pandas_profiling import ProfileReport
 
-from src.utils.read_config import read_config
+from src.configs import read_config
 
 
 @click.command()

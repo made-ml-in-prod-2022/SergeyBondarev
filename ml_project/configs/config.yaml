@@ -2,16 +2,21 @@
 dataset_name: "cherngs/heart-disease-cleveland-uci"
 
 # PATH
+raw_data_path: "data/raw"
+interim_data_path: "data/interim"
+predictions_data_path: "data/predictions/predictions.csv"
+metrics_data_path: "metrics/metrics.json"
+
 input_data_path: "data/raw/heart_cleveland_upload.csv"
-output_model_path: "models/model.pkl"
-model_params_path: "configs/knn_config.yaml" # change this to any other available model if you want
+output_model_path: "models/model.joblib"
+model_params_path: "configs/random_forest_config.yaml" # change this to any other available model if you want
 
 # MODELS
 splitting_params:
   test_size: 0.2
   random_state: 42
 train_params:
-  model_type: "knn"
+  model_type: "random_forest"
 
 # FEATURE ENGINEERING
 feature_params:
@@ -24,13 +29,10 @@ feature_params:
     - "slope"
     - "ca"
     - "thal"
-    - "condition"
   numerical_features:
     - "age"
     - "trestbps"
     - "chol"
     - "oldpeak"
     - "thalach"
-  features_to_drop:
-    - ""
   target_col: "condition"

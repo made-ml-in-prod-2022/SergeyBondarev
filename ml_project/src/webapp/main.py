@@ -1,4 +1,4 @@
-from Typing import Union
+from typing import Union
 from fastapi import FastAPI
 
 app = FastAPI()

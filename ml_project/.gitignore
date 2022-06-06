@@ -77,7 +77,7 @@ target/
 
 # exclude data from source control by default
 /data/external/*
-/data/processed/*
+/data/predictions/*
 /data/raw/*
 /data/interim/*
 

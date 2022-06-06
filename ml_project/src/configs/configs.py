@@ -31,6 +31,10 @@ class TrainParams:
 
 @dataclass
 class Config:
+    raw_data_path: str
+    interim_data_path: str
+    predictions_data_path: str
+    metrics_data_path: str
     dataset_name: str
     input_data_path: str
     output_model_path: str
@@ -51,6 +55,10 @@ def read_config(
         model_config = yaml.safe_load(f)
 
     return Config(
+        raw_data_path=config['raw_data_path'],
+        interim_data_path=config['interim_data_path'],
+        predictions_data_path=config['predictions_data_path'],
+        metrics_data_path=config['metrics_data_path'],
         dataset_name=config['dataset_name'],
         input_data_path=config["input_data_path"],
         output_model_path=config["output_model_path"],
